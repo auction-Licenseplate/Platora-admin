@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SideBarStyled = styled.div`
   &.Sidebar-wrap {
-    width: 50%;
+    width: 30%;
 
     .sidebar-container {
       width: 100%;

@@ -27,7 +27,11 @@ export const gradeData = [
   { grade: 2, startPrice: 100000 },
   { grade: 3, startPrice: 150000 },
 ];
-
+export const img = [
+  { title: 1, img: 50000 },
+  { title: 2, img: 50000 },
+  { title: 3, img: 50000 },
+];
 export const getDataByType = (type: string) => {
   switch (type) {
     case "file":
@@ -40,6 +44,8 @@ export const getDataByType = (type: string) => {
       return userInfoData;
     case "grade":
       return gradeData;
+    case "img":
+      return img;
     default:
       return [];
   }

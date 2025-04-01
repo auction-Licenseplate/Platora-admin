@@ -44,6 +44,13 @@ const Sidebar = ({ setPage }: setPageProps) => {
           >
             등급 관리
           </div>
+          <div
+            onClick={() => {
+              setPage("img");
+            }}
+          >
+            배너 관리
+          </div>
         </div>
       </div>
     </SideBarStyled>

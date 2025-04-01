@@ -4,6 +4,6 @@ export const MainStyled = styled.div`
   &.Main-wrap {
     display: flex;
     width: 100%;
-    margin: 0 auto;
+    margin: 100px auto;
   }
 `;
