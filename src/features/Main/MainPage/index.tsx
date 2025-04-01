@@ -1,6 +1,8 @@
 import { MainPageStyle } from "./styled";
 
 const MainPage = () => {
+
+  
   return;
 };
 
