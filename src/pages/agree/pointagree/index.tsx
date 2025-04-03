@@ -1,6 +1,6 @@
 import AgreeCompo from "@/components/AgreeCompo";
 const PointAgree = () => {
-  return <AgreeCompo />;
+  return <AgreeCompo type="point" />;
 };
 
 export default PointAgree;

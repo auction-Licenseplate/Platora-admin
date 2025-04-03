@@ -45,7 +45,6 @@ const Userlist = () => {
   return (
     <UserlistStyled>
       <Table dataSource={dataSource} columns={columns} />;
-      <div className="userinfo-wrap"></div>
     </UserlistStyled>
   );
 };

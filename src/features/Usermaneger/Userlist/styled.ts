@@ -10,10 +10,4 @@ export const UserlistStyled = styled.div`
     border: 1px solid black;
     padding: 5px;
   }
-  .userinfo-wrap {
-    display: flex;
-    flex-direction: column;
-    margin: 20px auto;
-    gap: 10px;
-  }
 `;
