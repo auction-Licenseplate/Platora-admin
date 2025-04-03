@@ -21,8 +21,11 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "next.config.js",
-    "next.config.js"
+    "src/types/*",
+    "src/*",
+    "src/lib/enum",
+    "src/lib/util",
+    "src/lib/interface"
   ],
   "exclude": ["node_modules"]
 }

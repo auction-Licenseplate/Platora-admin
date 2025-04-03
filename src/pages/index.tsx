@@ -1,6 +1,6 @@
-import MainPage from "@/features/Main";
-const Main = () => {
-  return <MainPage />;
-};
+import DashBoard from "@/features/DashPage";
 
-export default Main;
+const Home = () => {
+  return <DashBoard />;
+};
+export default Home;
