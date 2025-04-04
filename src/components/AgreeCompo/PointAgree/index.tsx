@@ -18,7 +18,6 @@ const PoinAgree = () => {
         account: x.account,
         amount: `${x.amount}원`,
         agree: <Button>승인</Button>,
-        refuse: <Button>거절</Button>,
       }))
     : [];
   const columns = [
@@ -51,11 +50,6 @@ const PoinAgree = () => {
       title: "승인",
       dataIndex: "agree",
       key: "agree",
-    },
-    {
-      title: "거절",
-      dataIndex: "refuse",
-      key: "refuse",
     },
   ];
 

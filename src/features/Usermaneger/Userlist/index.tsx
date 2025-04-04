@@ -4,6 +4,19 @@ import { useEffect, useState } from "react";
 import { Button, Table } from "antd";
 const Userlist = () => {
   const [user, setUser] = useState<any[]>([]); // user 초기값을 빈 배열로 설정
+  const [num, setNum] = useState(0);
+  useEffect(() => {}, [num]);
+  const delUser = (email: string) => {
+    axios
+      .delete("http://localhost:5000/admins/delete", {
+        data: { email }, // 회원 탈퇴 요청
+      })
+      .then((res) => {
+        console.log(res);
+        setNum(num + 1);
+      });
+  };
+
   useEffect(() => {
     axios.get("http://localhost:5000/admins/userinfo").then((res) => {
       console.log(res.data);
@@ -17,7 +30,15 @@ const Userlist = () => {
         name: x.name,
         email: x.email,
         phone: x.phone,
-        admin: <Button>탈퇴</Button>,
+        admin: (
+          <Button
+            onClick={() => {
+              delUser(x.email);
+            }}
+          >
+            탈퇴
+          </Button>
+        ),
       }))
     : [];
   const columns = [
