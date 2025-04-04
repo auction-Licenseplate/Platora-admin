@@ -60,4 +60,14 @@ export const sidebarMenus = createSidebarMenus([
       },
     ],
   },
+  {
+    key: "/guitar",
+    label: "기타 관리",
+    children: [
+      {
+        key: "/guitar/img",
+        label: "배너 관리",
+      },
+    ],
+  },
 ]);
