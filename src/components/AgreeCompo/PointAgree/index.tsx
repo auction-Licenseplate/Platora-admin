@@ -9,6 +9,15 @@ const PoinAgree = () => {
       setUser(res.data);
     });
   }, []);
+
+  const pointreturn = (userId: number) => {
+    axios
+      .post("http://localhost:5000/admins/pointsuccess", { userId })
+      .then((res) => {
+        console.log(res);
+      });
+  };
+
   const dataSource = user
     ? user.map((x: any, i: number) => ({
         key: String(i + 1), // key는 문자열로 변환
@@ -17,7 +26,15 @@ const PoinAgree = () => {
         bank: x.cardCompany,
         account: x.account,
         amount: `${x.amount}원`,
-        agree: <Button>승인</Button>,
+        agree: (
+          <Button
+            onClick={() => {
+              pointreturn(x.userId);
+            }}
+          >
+            승인
+          </Button>
+        ),
       }))
     : [];
   const columns = [

@@ -1,6 +1,7 @@
 import TitleCompo from "@/components/TitleCompo";
 import { UserStyled } from "./styled";
 import Userlist from "./Userlist";
+
 const UserInfo = () => {
   return (
     <UserStyled>
