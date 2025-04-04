@@ -7,7 +7,6 @@ const Agree = () => {
   const [file, setFile] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:5000/admins/fileinfo").then((res) => {
-      console.log(res.data);
       setFile(res.data);
     });
   }, []);

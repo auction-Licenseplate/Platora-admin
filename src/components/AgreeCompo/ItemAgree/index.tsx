@@ -5,7 +5,6 @@ const ItemAgree = () => {
   const [item, setItem] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:5000/admins/iteminfo").then((res) => {
-      console.log(res.data);
       setItem(res.data);
     });
   }, []);

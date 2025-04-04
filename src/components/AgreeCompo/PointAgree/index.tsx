@@ -6,7 +6,6 @@ const PoinAgree = () => {
   const [user, setUser] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:5000/admins/return").then((res) => {
-      console.log(res.data);
       setUser(res.data);
     });
   }, []);
