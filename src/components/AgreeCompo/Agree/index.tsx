@@ -2,10 +2,11 @@ import axios from "axios";
 import { AgreeStyled } from "./styled";
 import { useEffect, useState } from "react";
 import { Table, Button } from "antd";
-
+import FailedModal from "./FailedModal";
 const Agree = () => {
   const [num, setNum] = useState(0);
-  //승인 상태 변경 함수
+  const [fail, setFail] = useState("none");
+  //승인 상태 승인으로 변경 함수
   const pendding = (userId: number) => {
     axios
       .post("http://localhost:5000/admins/pendding", { userId })
@@ -14,7 +15,10 @@ const Agree = () => {
         setNum(num + 1);
       });
   };
-
+  // 승인 상태 거절 모달 띄우기
+  const failedModal = () => {
+    setFail("block");
+  };
   const [file, setFile] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:5000/admins/fileinfo").then((res) => {
@@ -77,7 +81,12 @@ const Agree = () => {
       key: "refuse",
     },
   ];
-  return <Table dataSource={dataSource} columns={columns} />;
+  return (
+    <>
+      <Table dataSource={dataSource} columns={columns} />
+      {fail === "none" ? <></> : <FailedModal fail={fail} setFail={setFail} />}
+    </>
+  );
 };
 
 export default Agree;
