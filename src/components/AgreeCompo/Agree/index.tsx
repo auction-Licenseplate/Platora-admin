@@ -2,10 +2,13 @@ import axios from "axios";
 import { AgreeStyled } from "./styled";
 import { useEffect, useState } from "react";
 import { Table, Button } from "antd";
-import FailedModal from "./FailedModal";
-const Agree = () => {
+interface failporps {
+  fail: any;
+  setFail: any;
+}
+const Agree = ({ fail, setFail }: failporps) => {
   const [num, setNum] = useState(0);
-  const [fail, setFail] = useState("none");
+
   //승인 상태 승인으로 변경 함수
   const pendding = (userId: number) => {
     axios
@@ -15,10 +18,7 @@ const Agree = () => {
         setNum(num + 1);
       });
   };
-  // 승인 상태 거절 모달 띄우기
-  const failedModal = () => {
-    setFail("block");
-  };
+
   const [file, setFile] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:5000/admins/fileinfo").then((res) => {
@@ -46,7 +46,15 @@ const Agree = () => {
             승인
           </Button>
         ),
-        refuse: <Button>거절</Button>,
+        refuse: (
+          <Button
+            onClick={() => {
+              setFail("block");
+            }}
+          >
+            거절
+          </Button>
+        ),
       }))
     : [];
   const columns = [
@@ -84,7 +92,6 @@ const Agree = () => {
   return (
     <>
       <Table dataSource={dataSource} columns={columns} />
-      {fail === "none" ? <></> : <FailedModal fail={fail} setFail={setFail} />}
     </>
   );
 };

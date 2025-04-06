@@ -36,6 +36,13 @@ const FailedModal = ({ fail, setFail }: failProps) => {
           ]}
         />
         <Button onClick={failvalue}>전송</Button>
+        <Button
+          onClick={() => {
+            setFail("none");
+          }}
+        >
+          취소
+        </Button>
       </div>
     </FailedModatStyled>
   );

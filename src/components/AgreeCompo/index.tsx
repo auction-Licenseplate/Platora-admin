@@ -3,10 +3,13 @@ import TitleCompo from "../TitleCompo";
 import Agree from "./Agree";
 import PointAgree from "./PointAgree";
 import ItemAgree from "./ItemAgree";
+import FailedModal from "./Agree/FailedModal";
+import { useState } from "react";
 interface AgreeProps {
   type?: string;
 }
 const AgreeCompo = ({ type }: AgreeProps) => {
+  const [fail, setFail] = useState("none");
   return (
     <AgreeStyled>
       <TitleCompo
@@ -23,8 +26,9 @@ const AgreeCompo = ({ type }: AgreeProps) => {
       ) : type === "point" ? (
         <PointAgree />
       ) : (
-        <ItemAgree />
+        <ItemAgree fail={fail} setFail={setFail} />
       )}
+      {fail === "none" ? <></> : <FailedModal fail={fail} setFail={setFail} />}
     </AgreeStyled>
   );
 };
