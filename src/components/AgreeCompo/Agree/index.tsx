@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { Table, Button } from "antd";
 interface failporps {
   fail: any;
-  setFail: any;
+  setFail: (value: string) => void;
+  setUserId: (value: string) => void;
 }
-const Agree = ({ fail, setFail }: failporps) => {
+const Agree = ({ fail, setFail, setUserId }: failporps) => {
   const [num, setNum] = useState(0);
-
   //승인 상태 승인으로 변경 함수
   const pendding = (userId: number) => {
     axios
@@ -50,6 +50,7 @@ const Agree = ({ fail, setFail }: failporps) => {
           <Button
             onClick={() => {
               setFail("block");
+              setUserId(x.u_id);
             }}
           >
             거절

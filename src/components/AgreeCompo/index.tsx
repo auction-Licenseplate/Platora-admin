@@ -10,6 +10,7 @@ interface AgreeProps {
 }
 const AgreeCompo = ({ type }: AgreeProps) => {
   const [fail, setFail] = useState("none");
+  const [userId, setUserId] = useState<string>("");
   return (
     <AgreeStyled>
       <TitleCompo
@@ -22,13 +23,17 @@ const AgreeCompo = ({ type }: AgreeProps) => {
         }
       />
       {type === "file" ? (
-        <Agree />
+        <Agree fail={fail} setFail={setFail} setUserId={setUserId} />
       ) : type === "point" ? (
         <PointAgree />
       ) : (
-        <ItemAgree fail={fail} setFail={setFail} />
+        <ItemAgree fail={fail} setFail={setFail} setUserId={setUserId} />
       )}
-      {fail === "none" ? <></> : <FailedModal fail={fail} setFail={setFail} />}
+      {fail === "none" ? (
+        <></>
+      ) : (
+        <FailedModal fail={fail} setFail={setFail} userId={userId} />
+      )}
     </AgreeStyled>
   );
 };

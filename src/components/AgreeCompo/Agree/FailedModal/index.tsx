@@ -6,16 +6,18 @@ import { useState } from "react";
 interface failProps {
   fail: any;
   setFail: any;
+  userId: string;
 }
-const FailedModal = ({ fail, setFail }: failProps) => {
+const FailedModal = ({ fail, setFail, userId }: failProps) => {
   const [type, setType] = useState("");
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
     setType(value);
   };
   const failvalue = () => {
+    console.log(userId);
     axios
-      .post("http://localhost:5000/admins/failvalue", { type })
+      .post("http://localhost:5000/admins/notifications", { type, userId })
       .then((res) => {
         console.log(res.data);
         setFail("none");

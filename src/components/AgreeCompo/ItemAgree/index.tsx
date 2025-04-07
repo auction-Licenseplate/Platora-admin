@@ -5,12 +5,12 @@ import { Table, Button } from "antd";
 interface itemProps {
   fail: string;
   setFail: (value: string) => void;
+  setUserId: (value: string) => void;
 }
-const ItemAgree = ({ fail, setFail }: itemProps) => {
+const ItemAgree = ({ fail, setFail, setUserId }: itemProps) => {
   const [item, setItem] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:5000/admins/iteminfo").then((res) => {
-      console.log(res.data);
       setItem(res.data);
     });
   }, []); // 경매 물품 요청 누나 원하는 데이터 양식으로 보내줘 필수값(유저 아이디 , 타이틀 ,이미지)
@@ -26,9 +26,7 @@ const ItemAgree = ({ fail, setFail }: itemProps) => {
         console.log(res.data);
       });
   };
-  const failvalue = () => {
-    setFail("block");
-  };
+
   const dataSource = item
     ? item.map((x: any, i: number) => ({
         key: String(i + 1), // key는 문자열로 변환
@@ -50,6 +48,7 @@ const ItemAgree = ({ fail, setFail }: itemProps) => {
           <Button
             onClick={() => {
               setFail("block");
+              setUserId(x.u_id);
             }}
           >
             거절
