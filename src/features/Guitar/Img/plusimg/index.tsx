@@ -21,7 +21,7 @@ const PlusModal = ({ plusModal, setPlusModal }: failProps) => {
       .then((res) => {
         console.log(res.data);
         setPlusModal("none");
-      }); // 공동인증서 거절 시 거절 사유 타입으로 요청
+      });
   };
   const del = () => {
     setPlusModal("none");
