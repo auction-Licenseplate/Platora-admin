@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Table, Button } from "antd";
+import Image from "next/image";
 
 const Img = () => {
   const [img, setImg] = useState([]);
@@ -13,8 +14,15 @@ const Img = () => {
   const dataSource = img
     ? img.map((x: any, i: number) => ({
         key: String(i + 1), // key는 문자열로 변환
-        title: x.title,
-        img: x.img,
+        title: x.banner_title,
+        img: (
+          <Image
+            src={`http://localhost:5000/uploads//${x.banner_img}`}
+            width={100}
+            height={100}
+            alt=""
+          />
+        ),
         refuse: <Button>삭제</Button>,
       }))
     : [];
