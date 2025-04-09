@@ -16,8 +16,15 @@ const PlusModal = ({ plusModal, setPlusModal }: failProps) => {
     setText(value);
   };
   const imgvalue = () => {
+    const formData = new FormData();
+    formData.append('text', text);
+    formData.append('file', file)
     axios
-      .post("http://localhost:5000/admins/imgvalue", { file, text })
+      .post("http://localhost:5000/admins/imgvalue", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
       .then((res) => {
         console.log(res.data);
         setPlusModal("none");
