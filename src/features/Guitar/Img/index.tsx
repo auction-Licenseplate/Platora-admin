@@ -11,6 +11,15 @@ const Img = () => {
       setImg(res.data);
     });
   }, []); // 배너 이미지 요청 (title , img 필요)
+
+  const imgdel = (title: string) => {
+    axios
+      .post("http://localhost:5000/admins/guitar/imgdel", { title })
+      .then((res) => {
+        console.log(res.data);
+      });
+  };
+
   const dataSource = img
     ? img.map((x: any, i: number) => ({
         key: String(i + 1), // key는 문자열로 변환
@@ -23,7 +32,15 @@ const Img = () => {
             alt=""
           />
         ),
-        refuse: <Button>삭제</Button>,
+        refuse: (
+          <Button
+            onClick={() => {
+              imgdel(x.banner_title);
+            }}
+          >
+            삭제
+          </Button>
+        ),
       }))
     : [];
   const columns = [
