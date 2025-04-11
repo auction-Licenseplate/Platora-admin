@@ -4,14 +4,16 @@ import Agree from "./Agree";
 import PointAgree from "./PointAgree";
 import ItemAgree from "./ItemAgree";
 import FailedModal from "./Agree/FailedModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 interface AgreeProps {
   type?: string;
 }
 const AgreeCompo = ({ type }: AgreeProps) => {
   const [fail, setFail] = useState("none");
   const [userId, setUserId] = useState<string>("");
+  const [num, setNum] = useState(0);
 
+  useEffect(() => {}, [num]);
   return (
     <AgreeStyled>
       <TitleCompo
@@ -34,6 +36,8 @@ const AgreeCompo = ({ type }: AgreeProps) => {
         <></>
       ) : (
         <FailedModal
+          num={num}
+          setNum={setNum}
           valuetype={type}
           fail={fail}
           setFail={setFail}

@@ -9,6 +9,7 @@ interface itemProps {
 }
 const ItemAgree = ({ fail, setFail, setUserId }: itemProps) => {
   const [item, setItem] = useState([]);
+  const [num, setNum] = useState(0);
   useEffect(() => {
     axios.get("http://localhost:5000/admins/iteminfo").then((res) => {
       setItem(res.data);
@@ -24,6 +25,7 @@ const ItemAgree = ({ fail, setFail, setUserId }: itemProps) => {
       })
       .then((res) => {
         console.log(res.data);
+        setNum(num + 1);
       });
   };
 

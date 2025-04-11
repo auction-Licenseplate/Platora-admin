@@ -6,10 +6,19 @@ import { useState } from "react";
 interface failProps {
   fail: any;
   setFail: any;
+  setNum: any;
+  num: number;
   userId: string;
   valuetype?: string;
 }
-const FailedModal = ({ valuetype, fail, setFail, userId }: failProps) => {
+const FailedModal = ({
+  num,
+  setNum,
+  valuetype,
+  fail,
+  setFail,
+  userId,
+}: failProps) => {
   const [type, setType] = useState("");
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
@@ -26,6 +35,7 @@ const FailedModal = ({ valuetype, fail, setFail, userId }: failProps) => {
       .then((res) => {
         console.log(res.data);
         setFail("none");
+        setNum(num + 1);
       }); // 공동인증서 거절 시 거절 사유 타입으로 요청
   };
   return (
