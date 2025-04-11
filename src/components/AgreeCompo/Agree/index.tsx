@@ -1,7 +1,7 @@
 import axios from "axios";
 import { AgreeStyled } from "./styled";
 import { useEffect, useState } from "react";
-import { Table, Button } from "antd";
+import { Table, Button, Modal } from "antd";
 interface failporps {
   fail: any;
   setFail: (value: string) => void;
@@ -26,38 +26,52 @@ const Agree = ({ fail, setFail, setUserId }: failporps) => {
       setFile(res.data);
     });
   }, [num]);
+
   const dataSource = file
-    ? file.map((x: any, i: number) => ({
-        key: String(i + 1), // key는 문자열로 변환
-        name: x.u_name,
-        email: x.u_email,
-        plateNum: x.v_plate_num,
-        file: (
-          <a href={x.u_certification} target="_blank" rel="noopener noreferrer">
-            <Button>파일 보기</Button>
-          </a>
-        ),
-        agree: (
-          <Button
-            onClick={() => {
-              pendding(x.u_id);
-            }}
-          >
-            승인
-          </Button>
-        ),
-        refuse: (
-          <Button
-            onClick={() => {
-              setFail("block");
-              setUserId(x.u_id);
-            }}
-          >
-            거절
-          </Button>
-        ),
-      }))
+    ? file.map((x: any, i: number) => {
+        const fileUrl = `http://localhost:5000/uploads/${encodeURIComponent(
+          x.u_certification
+        )}`;
+        return {
+          key: String(i + 1),
+          name: x.u_name,
+          email: x.u_email,
+          plateNum: x.v_plate_num,
+          fileUrl, // 저장 가능
+          file: (
+            <a href={fileUrl} target="_blank" rel="noopener noreferrer">
+              <Button>파일 보기</Button>
+            </a>
+          ),
+          agree: (
+            <Button
+              onClick={() => {
+                Modal.confirm({
+                  title: "승인 요청",
+                  content: "정말 승인하시겠습니까?",
+                  okText: "승인",
+                  cancelText: "취소",
+                  onOk: () => pendding(x.u_id),
+                });
+              }}
+            >
+              승인
+            </Button>
+          ),
+          refuse: (
+            <Button
+              onClick={() => {
+                setFail("block");
+                setUserId(x.u_id);
+              }}
+            >
+              거절
+            </Button>
+          ),
+        };
+      })
     : [];
+
   const columns = [
     {
       title: "Name",

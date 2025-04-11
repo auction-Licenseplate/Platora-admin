@@ -1,5 +1,5 @@
 import { FailedModatStyled } from "./styled";
-import { Button, Select } from "antd";
+import { Button, Modal, Select } from "antd";
 import axios from "axios";
 import clsx from "clsx";
 import { useState } from "react";
@@ -7,8 +7,10 @@ interface failProps {
   fail: any;
   setFail: any;
   userId: string;
+  valuetype?: string;
 }
-const FailedModal = ({ fail, setFail, userId }: failProps) => {
+const FailedModal = ({ valuetype, fail, setFail, userId }: failProps) => {
+  console.log(valuetype);
   const [type, setType] = useState("");
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
@@ -37,7 +39,19 @@ const FailedModal = ({ fail, setFail, userId }: failProps) => {
             { value: "3", label: "type3" },
           ]}
         />
-        <Button onClick={failvalue}>전송</Button>
+        <Button
+          onClick={() => {
+            Modal.confirm({
+              title: "전송 요청",
+              content: "정말 전송하시겠습니까?",
+              okText: "전송",
+              cancelText: "취소",
+              onOk: () => failvalue,
+            });
+          }}
+        >
+          전송
+        </Button>
         <Button
           onClick={() => {
             setFail("none");

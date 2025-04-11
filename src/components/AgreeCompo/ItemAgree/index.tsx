@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Table, Button } from "antd";
+import { Table, Button, Modal } from "antd";
 
 interface itemProps {
   fail: string;
@@ -38,7 +38,13 @@ const ItemAgree = ({ fail, setFail, setUserId }: itemProps) => {
         agree: (
           <Button
             onClick={() => {
-              success(x.u_id, x.v_plate_num);
+              Modal.confirm({
+                title: "승인 요청",
+                content: "정말 승인하시겠습니까?",
+                okText: "승인",
+                cancelText: "취소",
+                onOk: () => success(x.u_id, x.v_plate_num),
+              });
             }}
           >
             승인

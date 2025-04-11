@@ -11,6 +11,7 @@ interface AgreeProps {
 const AgreeCompo = ({ type }: AgreeProps) => {
   const [fail, setFail] = useState("none");
   const [userId, setUserId] = useState<string>("");
+
   return (
     <AgreeStyled>
       <TitleCompo
@@ -32,7 +33,12 @@ const AgreeCompo = ({ type }: AgreeProps) => {
       {fail === "none" ? (
         <></>
       ) : (
-        <FailedModal fail={fail} setFail={setFail} userId={userId} />
+        <FailedModal
+          valuetype={type}
+          fail={fail}
+          setFail={setFail}
+          userId={userId}
+        />
       )}
     </AgreeStyled>
   );
