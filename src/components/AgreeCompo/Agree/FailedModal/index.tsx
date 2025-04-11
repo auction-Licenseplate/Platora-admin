@@ -10,7 +10,6 @@ interface failProps {
   valuetype?: string;
 }
 const FailedModal = ({ valuetype, fail, setFail, userId }: failProps) => {
-  console.log(valuetype);
   const [type, setType] = useState("");
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
@@ -19,7 +18,11 @@ const FailedModal = ({ valuetype, fail, setFail, userId }: failProps) => {
   const failvalue = () => {
     console.log(userId);
     axios
-      .post("http://localhost:5000/notification/failvalue", { type, userId })
+      .post("http://localhost:5000/notification/failvalue", {
+        type,
+        userId,
+        valuetype,
+      })
       .then((res) => {
         console.log(res.data);
         setFail("none");
