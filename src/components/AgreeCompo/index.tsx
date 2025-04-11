@@ -12,6 +12,7 @@ const AgreeCompo = ({ type }: AgreeProps) => {
   const [fail, setFail] = useState("none");
   const [userId, setUserId] = useState<string>("");
   const [num, setNum] = useState(0);
+  const [plate, setPlate] = useState("");
 
   useEffect(() => {}, [num]);
   return (
@@ -26,16 +27,27 @@ const AgreeCompo = ({ type }: AgreeProps) => {
         }
       />
       {type === "file" ? (
-        <Agree fail={fail} setFail={setFail} setUserId={setUserId} />
+        <Agree
+          setPlate={setPlate}
+          fail={fail}
+          setFail={setFail}
+          setUserId={setUserId}
+        />
       ) : type === "point" ? (
         <PointAgree />
       ) : (
-        <ItemAgree fail={fail} setFail={setFail} setUserId={setUserId} />
+        <ItemAgree
+          setPlate={setPlate}
+          fail={fail}
+          setFail={setFail}
+          setUserId={setUserId}
+        />
       )}
       {fail === "none" ? (
         <></>
       ) : (
         <FailedModal
+          plate={plate}
           num={num}
           setNum={setNum}
           valuetype={type}

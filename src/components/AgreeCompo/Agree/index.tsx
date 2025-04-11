@@ -6,8 +6,9 @@ interface failporps {
   fail: any;
   setFail: (value: string) => void;
   setUserId: (value: string) => void;
+  setPlate: (value: string) => void;
 }
-const Agree = ({ fail, setFail, setUserId }: failporps) => {
+const Agree = ({ fail, setFail, setUserId, setPlate }: failporps) => {
   const [num, setNum] = useState(0);
   //승인 상태 승인으로 변경 함수
   const pendding = (userId: number) => {
@@ -63,6 +64,7 @@ const Agree = ({ fail, setFail, setUserId }: failporps) => {
               onClick={() => {
                 setFail("block");
                 setUserId(x.u_id);
+                setPlate(x.v_plate_num);
               }}
             >
               거절

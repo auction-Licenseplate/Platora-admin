@@ -6,12 +6,14 @@ interface itemProps {
   fail: string;
   setFail: (value: string) => void;
   setUserId: (value: string) => void;
+  setPlate: (value: string) => void;
 }
-const ItemAgree = ({ fail, setFail, setUserId }: itemProps) => {
+const ItemAgree = ({ setPlate, fail, setFail, setUserId }: itemProps) => {
   const [item, setItem] = useState([]);
   const [num, setNum] = useState(0);
   useEffect(() => {
     axios.get("http://localhost:5000/admins/iteminfo").then((res) => {
+      console.log(res.data);
       setItem(res.data);
     });
   }, []); // 경매 물품 요청 누나 원하는 데이터 양식으로 보내줘 필수값(유저 아이디 , 타이틀 ,이미지)
@@ -57,6 +59,7 @@ const ItemAgree = ({ fail, setFail, setUserId }: itemProps) => {
             onClick={() => {
               setFail("block");
               setUserId(x.u_id);
+              setPlate(x.v_plate_num);
             }}
           >
             거절

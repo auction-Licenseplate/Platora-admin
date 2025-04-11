@@ -10,6 +10,7 @@ interface failProps {
   num: number;
   userId: string;
   valuetype?: string;
+  plate: string;
 }
 const FailedModal = ({
   num,
@@ -18,7 +19,9 @@ const FailedModal = ({
   fail,
   setFail,
   userId,
+  plate,
 }: failProps) => {
+  console.log(plate);
   const [type, setType] = useState("");
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
@@ -31,6 +34,7 @@ const FailedModal = ({
         type,
         userId,
         valuetype,
+        plate,
       })
       .then((res) => {
         console.log(res.data);
