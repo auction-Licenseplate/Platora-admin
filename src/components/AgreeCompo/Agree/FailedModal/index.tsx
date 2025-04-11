@@ -17,7 +17,7 @@ const FailedModal = ({ fail, setFail, userId }: failProps) => {
   const failvalue = () => {
     console.log(userId);
     axios
-      .post("http://localhost:5000/admins/notifications", { type, userId })
+      .post("http://localhost:5000/notification/failvalue", { type, userId })
       .then((res) => {
         console.log(res.data);
         setFail("none");
