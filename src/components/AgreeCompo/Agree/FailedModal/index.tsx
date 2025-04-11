@@ -12,6 +12,7 @@ interface failProps {
   valuetype?: string;
   plate: string;
 }
+
 const FailedModal = ({
   num,
   setNum,
@@ -63,7 +64,7 @@ const FailedModal = ({
               content: "정말 전송하시겠습니까?",
               okText: "전송",
               cancelText: "취소",
-              onOk: () => failvalue,
+              onOk: () => failvalue(),
             });
           }}
         >
