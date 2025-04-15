@@ -31,6 +31,7 @@ const FailedModal = ({
   };
   const failvalue = () => {
     console.log(userId);
+    console.log(type);
     axios
       .post("http://localhost:5000/notification/failvalue", {
         type,
@@ -58,14 +59,12 @@ const FailedModal = ({
     { value: "3", label: "관리자 판단에 따라 거절" },
   ];
 
-  const options = valuetype === "file" ? fileOptions : itemOptions;
-
   return (
     <FailedModatStyled className={clsx("FailedModal-wrap")}>
       <div className="FailedModal-container">
         <div className="FailedModal-title">거절 사유 전송 타입 선택</div>
         <Select
-          defaultValue="1"
+          defaultValue="거절 사유 선택"
           style={{ width: 250 }}
           onChange={handleChange}
           options={valuetype === "file" ? fileOptions : itemOptions}
