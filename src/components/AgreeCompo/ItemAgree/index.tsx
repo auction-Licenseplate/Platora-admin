@@ -8,15 +8,23 @@ interface itemProps {
   setUserId: (value: string) => void;
   setPlate: (value: string) => void;
 }
+
 const ItemAgree = ({ setPlate, fail, setFail, setUserId }: itemProps) => {
   const [item, setItem] = useState([]);
   const [num, setNum] = useState(0);
   useEffect(() => {
     axios.get("http://localhost:5000/admins/iteminfo").then((res) => {
       console.log(res.data);
-      setItem(res.data);
+      const filteredData = res.data
+        .filter((x: any) => x.a_write_status === "waiting")
+        .sort(
+          (a: any, b: any) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        ); // 최신순 정렬
+
+      setItem(filteredData);
     });
-  }, []); // 경매 물품 요청 누나 원하는 데이터 양식으로 보내줘 필수값(유저 아이디 , 타이틀 ,이미지)
+  }, [num]); // 경매 물품 요청 누나 원하는 데이터 양식으로 보내줘 필수값(유저 아이디 , 타이틀 ,이미지)
 
   // 경매 승인 버튼 온클릭시 요청
   const success = (userid: string, platenum: string) => {
@@ -92,6 +100,18 @@ const ItemAgree = ({ setPlate, fail, setFail, setUserId }: itemProps) => {
       title: "file",
       dataIndex: "file",
       key: "file",
+      render: (paths: string) => {
+        const firstImage = paths?.split(",")[0]?.trim();
+        return firstImage ? (
+          <img
+            src={`http://localhost:5000/uploads/${firstImage}`}
+            alt="car"
+            style={{ maxWidth: "100px" }}
+          />
+        ) : (
+          <span>이미지 없음</span>
+        );
+      },
     },
     {
       title: "승인",

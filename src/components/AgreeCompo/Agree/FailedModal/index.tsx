@@ -23,6 +23,7 @@ const FailedModal = ({
   plate,
 }: failProps) => {
   console.log(plate);
+  console.log(valuetype);
   const [type, setType] = useState("");
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
@@ -41,21 +42,33 @@ const FailedModal = ({
         console.log(res.data);
         setFail("none");
         setNum(num + 1);
+        window.location.reload();
       }); // 공동인증서 거절 시 거절 사유 타입으로 요청
   };
+
+  const fileOptions = [
+    { value: "1", label: "공인인증서가 유효하지 않음" },
+    { value: "2", label: "제출된 정보 부족" },
+    { value: "3", label: "관리자 판단에 따라 거절" },
+  ];
+
+  const itemOptions = [
+    { value: "1", label: "차량 이미지가 유효하지 않음" },
+    { value: "2", label: "제출된 정보 부족" },
+    { value: "3", label: "관리자 판단에 따라 거절" },
+  ];
+
+  const options = valuetype === "file" ? fileOptions : itemOptions;
+
   return (
     <FailedModatStyled className={clsx("FailedModal-wrap")}>
       <div className="FailedModal-container">
         <div className="FailedModal-title">거절 사유 전송 타입 선택</div>
         <Select
-          defaultValue="type1"
-          style={{ width: 120 }}
+          defaultValue="1"
+          style={{ width: 250 }}
           onChange={handleChange}
-          options={[
-            { value: "1", label: "type1" },
-            { value: "2", label: "type2" },
-            { value: "3", label: "type3" },
-          ]}
+          options={valuetype === "file" ? fileOptions : itemOptions}
         />
         <Button
           onClick={() => {
