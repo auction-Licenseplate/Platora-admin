@@ -6,7 +6,13 @@ const PoinAgree = () => {
   const [user, setUser] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:5000/admins/return").then((res) => {
-      setUser(res.data);
+      const filteredData = res.data
+        .filter((item: any) => item.amount !== 0)
+        .sort(
+          (a: any, b: any) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
+      setUser(filteredData);
     });
   }, []);
 
@@ -15,6 +21,7 @@ const PoinAgree = () => {
       .post("http://localhost:5000/admins/pointsuccess", { userId })
       .then((res) => {
         console.log(res);
+        window.location.reload();
       });
   };
 

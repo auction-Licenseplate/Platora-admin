@@ -2,45 +2,58 @@ import axios from "axios";
 import { UserlistStyled } from "./styled";
 import { useEffect, useState } from "react";
 import { Button, Table } from "antd";
+import Cookies from "js-cookie";
+
 const Userlist = () => {
-  const [user, setUser] = useState<any[]>([]); // user 초기값을 빈 배열로 설정
+  const [user, setUser] = useState<any[]>([]);
   const [num, setNum] = useState(0);
-  useEffect(() => {}, [num]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // 유저 목록 불러오기
+        const userRes = await axios.get(
+          "http://localhost:5000/admins/userinfo"
+        );
+        setUser(userRes.data.userInfo);
+      } catch (error) {
+        console.error("데이터 불러오기 실패:", error);
+      }
+    };
+
+    fetchData();
+  }, [num]);
+
   const delUser = (email: string) => {
     axios
       .delete("http://localhost:5000/admins/delete", {
-        data: { email }, // 회원 탈퇴 요청
+        data: { email },
       })
       .then((res) => {
         console.log(res);
-        setNum(num + 1);
+        setNum(num + 1); // 다시 데이터 로드
       });
   };
 
-  useEffect(() => {
-    axios.get("http://localhost:5000/admins/userinfo").then((res) => {
-      console.log(res.data);
-      setUser(res.data.userInfo);
-      console.log(user);
-    });
-  }, []);
-  const dataSource = user
-    ? user.map((x: any, i: number) => ({
-        key: String(i + 1), // key는 문자열로 변환
-        name: x.name,
-        email: x.email,
-        phone: x.phone,
-        admin: (
-          <Button
-            onClick={() => {
-              delUser(x.email);
-            }}
-          >
-            탈퇴
-          </Button>
-        ),
-      }))
-    : [];
+  const dataSource = user.map((x: any, i: number) => ({
+    key: String(i + 1),
+    name: x.name,
+    email: x.email,
+    phone: x.phone,
+    admin:
+      x.email === "adminPlatora01@admin.com" ? (
+        <p>👑관리자</p>
+      ) : (
+        <Button
+          onClick={() => {
+            delUser(x.email);
+          }}
+        >
+          탈퇴
+        </Button>
+      ),
+  }));
+
   const columns = [
     {
       title: "Name",
@@ -63,9 +76,10 @@ const Userlist = () => {
       key: "admin",
     },
   ];
+
   return (
     <UserlistStyled>
-      <Table dataSource={dataSource} columns={columns} />;
+      <Table dataSource={dataSource} columns={columns} />
     </UserlistStyled>
   );
 };
