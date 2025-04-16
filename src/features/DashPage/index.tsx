@@ -38,7 +38,7 @@ const DashBoard = () => {
           const isOngoing = endTime > now;
 
           // 경매 종료
-          // if (!isOngoing) return;
+          if (!isOngoing) return;
 
           const id = item.bid_auctionId;
 
@@ -50,6 +50,7 @@ const DashBoard = () => {
               bidCount: 0,
             };
           }
+
           auctionMap[id].bidCount += 1;
 
           const bidDate = dayjs(item.bid_createAt);

@@ -2,14 +2,43 @@ import Header from "@/features/Header";
 import NotPc from "@/features/NotPc";
 import Template from "@/layouts/Template";
 import "@/styles/globals.css";
+import axios from "axios";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [notPc, setNotPc] = useState(false);
 
+  const token = Cookies.get("accessToken");
+  const router = useRouter();
+
   useEffect(() => {
+    if (!token) router.replace("http://localhost:3000/");
+
+    const checkAdmin = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/auth/getRole", {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const role = res.data;
+
+        if (role !== "admin") {
+          router.replace("http://localhost:3000/");
+        }
+      } catch (error) {
+        console.error("유저 정보 요청 실패:", error);
+      }
+    };
+
+    checkAdmin();
+
     const handleResize = () => {
       if (window.innerWidth <= 1200) {
         setNotPc(true);
