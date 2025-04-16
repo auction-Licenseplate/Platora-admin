@@ -16,9 +16,9 @@ const PoinAgree = () => {
     });
   }, []);
 
-  const pointreturn = (userId: number) => {
+  const pointreturn = (userId: number, amount: number) => {
     axios
-      .post("http://localhost:5000/admins/pointsuccess", { userId })
+      .post("http://localhost:5000/admins/pointsuccess", { userId, amount })
       .then((res) => {
         console.log(res);
         window.location.reload();
@@ -36,7 +36,7 @@ const PoinAgree = () => {
         agree: (
           <Button
             onClick={() => {
-              pointreturn(x.userId);
+              pointreturn(x.userId, x.amount);
             }}
           >
             승인
