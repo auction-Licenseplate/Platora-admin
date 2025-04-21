@@ -18,8 +18,7 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  exportTrailingSlash: true,
-  output: "standalone",
+  trailingSlash: true,
 };
 
 module.exports = withTM(nextConfig);
