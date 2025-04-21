@@ -28,6 +28,7 @@ const PlusModal = ({ plusModal, setPlusModal }: failProps) => {
       .then((res) => {
         console.log(res.data);
         setPlusModal("none");
+        window.location.reload();
       });
   };
   const del = () => {
