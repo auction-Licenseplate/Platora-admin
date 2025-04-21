@@ -33,7 +33,7 @@ const FailedModal = ({
     console.log(userId);
     console.log(type);
     axios
-      .post("http://15.164.52.122/notification/failvalue", {
+      .post("http://15.164.52.122:5000/notification/failvalue", {
         type,
         userId,
         valuetype,

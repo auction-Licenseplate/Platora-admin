@@ -12,7 +12,9 @@ const Userlist = () => {
     const fetchData = async () => {
       try {
         // 유저 목록 불러오기
-        const userRes = await axios.get("http://15.164.52.122/admins/userinfo");
+        const userRes = await axios.get(
+          "http://15.164.52.122:5000/admins/userinfo"
+        );
         setUser(userRes.data.userInfo);
       } catch (error) {
         console.error("데이터 불러오기 실패:", error);
@@ -24,7 +26,7 @@ const Userlist = () => {
 
   const delUser = (email: string) => {
     axios
-      .delete("http://15.164.52.122/admins/delete", {
+      .delete("http://15.164.52.122:5000/admins/delete", {
         data: { email },
       })
       .then((res) => {

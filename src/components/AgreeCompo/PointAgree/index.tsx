@@ -5,7 +5,7 @@ import { Table, Button } from "antd";
 const PoinAgree = () => {
   const [user, setUser] = useState([]);
   useEffect(() => {
-    axios.get("http://15.164.52.122/admins/return").then((res) => {
+    axios.get("http://15.164.52.122:5000/admins/return").then((res) => {
       const filteredData = res.data
         .filter((item: any) => item.amount !== 0)
         .sort(
@@ -18,7 +18,7 @@ const PoinAgree = () => {
 
   const pointreturn = (userId: number) => {
     axios
-      .post("http://15.164.52.122/admins/pointsuccess", { userId })
+      .post("http://15.164.52.122:5000/admins/pointsuccess", { userId })
       .then((res) => {
         console.log(res);
         window.location.reload();

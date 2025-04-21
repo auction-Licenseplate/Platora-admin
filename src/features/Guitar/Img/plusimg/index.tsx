@@ -20,18 +20,19 @@ const PlusModal = ({ plusModal, setPlusModal }: failProps) => {
     formData.append("text", text);
     formData.append("file", file);
     axios
-      .post("http://15.164.52.122/admins/imgvalue", formData, {
+      .post("http://15.164.52.122:5000/admins/imgvalue", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       })
       .then((res) => {
         console.log(res.data);
-        setPlusModal("none");
         window.location.reload();
+        setPlusModal("none");
       });
   };
   const del = () => {
+    window.location.reload();
     setPlusModal("none");
   };
   const handleFileUpload = (file: File, onSuccess: any) => {
