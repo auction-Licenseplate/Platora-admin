@@ -17,6 +17,7 @@ const Img = () => {
       .post("http://15.164.52.122:5000/admins/guitar/imgdel", { title })
       .then((res) => {
         console.log(res.data);
+        window.location.reload();
       });
   };
 
