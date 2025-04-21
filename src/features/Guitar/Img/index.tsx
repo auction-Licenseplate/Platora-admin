@@ -2,28 +2,25 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Table, Button } from "antd";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const Img = () => {
   const [img, setImg] = useState([]);
+  const router = useRouter();
 
-  const fetchImages = () => {
+  useEffect(() => {
     axios.get("http://15.164.52.122:5000/admins/guitar/img").then((res) => {
       console.log(res.data);
-      setImg(res.data); // 받은 데이터를 상태로 설정
+      setImg(res.data);
     });
-  };
-
-  // 컴포넌트가 마운트될 때 이미지 목록을 요청
-  useEffect(() => {
-    fetchImages();
-  }, []);
+  }, []); // 배너 이미지 요청 (title , img 필요)
 
   const imgdel = (title: string) => {
     axios
       .post("http://15.164.52.122:5000/admins/guitar/imgdel", { title })
       .then((res) => {
         console.log(res.data);
-        fetchImages();
+        router.push("http://52.62.79.236/guitar/img/");
       });
   };
 

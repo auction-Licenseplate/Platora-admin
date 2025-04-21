@@ -2,14 +2,15 @@ import TitleCompo from "@/components/TitleCompo";
 import Img from "./Img";
 import { useEffect, useState } from "react";
 import PlusModal from "./Img/plusimg";
+import { useRouter } from "next/router";
+
 const Guitar = () => {
   const [plusModal, setPlusModal] = useState("none");
+  const router = useRouter();
 
   useEffect(() => {
     if (plusModal === "none") {
-      setTimeout(() => {
-        window.location.reload();
-      }, 100);
+      router.push("http://52.62.79.236/guitar/img/");
     }
   }, [plusModal]);
 
