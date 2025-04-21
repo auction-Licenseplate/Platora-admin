@@ -7,7 +7,9 @@ const Guitar = () => {
 
   useEffect(() => {
     if (plusModal === "none") {
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 100);
     }
   }, [plusModal]);
 

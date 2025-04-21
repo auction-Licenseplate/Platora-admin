@@ -5,19 +5,25 @@ import Image from "next/image";
 
 const Img = () => {
   const [img, setImg] = useState([]);
-  useEffect(() => {
+
+  const fetchImages = () => {
     axios.get("http://15.164.52.122:5000/admins/guitar/img").then((res) => {
       console.log(res.data);
-      setImg(res.data);
+      setImg(res.data); // 받은 데이터를 상태로 설정
     });
-  }, []); // 배너 이미지 요청 (title , img 필요)
+  };
+
+  // 컴포넌트가 마운트될 때 이미지 목록을 요청
+  useEffect(() => {
+    fetchImages();
+  }, []);
 
   const imgdel = (title: string) => {
     axios
       .post("http://15.164.52.122:5000/admins/guitar/imgdel", { title })
       .then((res) => {
         console.log(res.data);
-        window.location.reload();
+        fetchImages();
       });
   };
 
