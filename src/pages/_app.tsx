@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
     const checkAdmin = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/auth/getRole", {
+        const res = await axios.get("http://15.164.52.122/auth/getRole", {
           withCredentials: true,
           headers: {
             Authorization: `Bearer ${token}`,

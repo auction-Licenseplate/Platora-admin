@@ -26,7 +26,7 @@ const DashBoard = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/boards/getInfo")
+      .get("http://15.164.52.122/boards/getInfo")
       .then((res) => {
         const now = new Date().getTime();
 

@@ -13,7 +13,7 @@ const Agree = ({ fail, setFail, setUserId, setPlate }: failporps) => {
   //승인 상태 승인으로 변경 함수
   const pendding = (userId: number) => {
     axios
-      .post("http://localhost:5000/admins/pendding", { userId })
+      .post("http://15.164.52.122/admins/pendding", { userId })
       .then((res) => {
         console.log(res.data);
         setNum(num + 1);
@@ -22,7 +22,7 @@ const Agree = ({ fail, setFail, setUserId, setPlate }: failporps) => {
 
   const [file, setFile] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/admins/fileinfo").then((res) => {
+    axios.get("http://15.164.52.122/admins/fileinfo").then((res) => {
       console.log(res.data);
       setFile(res.data);
     });
@@ -30,7 +30,7 @@ const Agree = ({ fail, setFail, setUserId, setPlate }: failporps) => {
 
   const dataSource = file
     ? file.map((x: any, i: number) => {
-        const fileUrl = `http://localhost:5000/uploads/${encodeURIComponent(
+        const fileUrl = `http://15.164.52.122/uploads/${encodeURIComponent(
           x.u_certification
         )}`;
         return {

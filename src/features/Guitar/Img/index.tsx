@@ -6,7 +6,7 @@ import Image from "next/image";
 const Img = () => {
   const [img, setImg] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/admins/guitar/img").then((res) => {
+    axios.get("http://15.164.52.122/admins/guitar/img").then((res) => {
       console.log(res.data);
       setImg(res.data);
     });
@@ -14,7 +14,7 @@ const Img = () => {
 
   const imgdel = (title: string) => {
     axios
-      .post("http://localhost:5000/admins/guitar/imgdel", { title })
+      .post("http://15.164.52.122/admins/guitar/imgdel", { title })
       .then((res) => {
         console.log(res.data);
       });
@@ -26,7 +26,7 @@ const Img = () => {
         title: x.banner_title,
         img: (
           <Image
-            src={`http://localhost:5000/uploads//${x.banner_img}`}
+            src={`http://15.164.52.122/uploads//${x.banner_img}`}
             width={100}
             height={100}
             alt=""

@@ -18,6 +18,7 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  exportTrailingSlash: true,
 };
 
 module.exports = withTM(nextConfig);

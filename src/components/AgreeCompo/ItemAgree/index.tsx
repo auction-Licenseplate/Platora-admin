@@ -13,7 +13,7 @@ const ItemAgree = ({ setPlate, fail, setFail, setUserId }: itemProps) => {
   const [item, setItem] = useState([]);
   const [num, setNum] = useState(0);
   useEffect(() => {
-    axios.get("http://localhost:5000/admins/iteminfo").then((res) => {
+    axios.get("http://15.164.52.122/admins/iteminfo").then((res) => {
       console.log(res.data);
       const filteredData = res.data
         .filter((x: any) => x.a_write_status === "waiting")
@@ -29,7 +29,7 @@ const ItemAgree = ({ setPlate, fail, setFail, setUserId }: itemProps) => {
   // 경매 승인 버튼 온클릭시 요청
   const success = (userid: string, platenum: string) => {
     axios
-      .post("http://localhost:5000/admins/iteminfo/sucess", {
+      .post("http://15.164.52.122/admins/iteminfo/sucess", {
         userid,
         platenum,
       })
@@ -104,7 +104,7 @@ const ItemAgree = ({ setPlate, fail, setFail, setUserId }: itemProps) => {
         const firstImage = paths?.split(",")[0]?.trim();
         return firstImage ? (
           <img
-            src={`http://localhost:5000/uploads/${firstImage}`}
+            src={`http://15.164.52.122/uploads/${firstImage}`}
             alt="car"
             style={{ maxWidth: "100px" }}
           />
