@@ -11,10 +11,12 @@ interface failProps {
 const PlusModal = ({ plusModal, setPlusModal }: failProps) => {
   const [text, setText] = useState("");
   const [file, setFile] = useState<any>("");
+
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
     setText(value);
   };
+
   const imgvalue = () => {
     const formData = new FormData();
     formData.append("text", text);
@@ -27,12 +29,10 @@ const PlusModal = ({ plusModal, setPlusModal }: failProps) => {
       })
       .then((res) => {
         console.log(res.data);
-        window.location.reload();
         setPlusModal("none");
       });
   };
   const del = () => {
-    window.location.reload();
     setPlusModal("none");
   };
   const handleFileUpload = (file: File, onSuccess: any) => {
