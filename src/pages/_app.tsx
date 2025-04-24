@@ -8,6 +8,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
+import { Modal } from "antd";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [notPc, setNotPc] = useState(false);
@@ -53,7 +54,10 @@ export default function App({ Component, pageProps }: AppProps) {
         console.log(role);
 
         if (role !== "admin") {
-          router.replace("http://13.125.95.215");
+          Modal.error({
+            title: "접근이 제한되었습니다",
+            content: "이 페이지는 관리자만 접근할 수 있습니다.",
+          });
         }
       } catch (error) {
         console.error("유저 정보 요청 실패:", error);
