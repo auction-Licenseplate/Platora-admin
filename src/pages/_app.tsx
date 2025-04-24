@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
-    if (!token) router.replace("http://13.125.95.215");
+    if (!token) router.push("/login");
 
     const checkAdmin = async () => {
       try {

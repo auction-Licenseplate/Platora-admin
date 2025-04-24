@@ -7,8 +7,8 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import Cookie from "js-cookie";
 import Image from "next/image";
-import seeimg from "@/assets/images/seeImgBlack.png";
-import notsee from "@/assets/images/notseeImgBlack.png";
+import seeimg from "@/imgaes/seeImgBlack.png";
+import notsee from "@/images/notseeImgBlack.png";
 const LoginForm = () => {
   const [see, setSee] = useState("password");
   const router = useRouter();
