@@ -63,7 +63,10 @@ export default function App({ Component, pageProps }: AppProps) {
               window.location.href = "http://13.125.95.215";
             },
             maskStyle: {
-              backgroundColor: "#ffffffde",
+              backgroundColor: "#ffffffd2",
+            },
+            bodyStyle: {
+              backgroundColor: "#ffffffd2",
             },
           });
         }
