@@ -16,9 +16,9 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
-    // if (!token) router.replace("http://13.125.95.215");
+    const { token } = router.query;
 
-    console.log(token);
+    if (!token) router.replace("http://13.125.95.215");
 
     const checkAdmin = async () => {
       try {
@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
         console.log(role);
 
         if (role !== "admin") {
-          // router.replace("http://13.125.95.215");
+          router.replace("http://13.125.95.215");
         }
       } catch (error) {
         console.error("유저 정보 요청 실패:", error);
