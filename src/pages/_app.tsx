@@ -72,9 +72,13 @@ export default function App({ Component, pageProps }: AppProps) {
       ) : (
         <>
           <Header />
-          <Template>
-            <Component {...pageProps} />
-          </Template>
+          {token ? (
+            <Template>
+              <Component {...pageProps} />
+            </Template>
+          ) : (
+            <></>
+          )}
         </>
       )}
     </>
