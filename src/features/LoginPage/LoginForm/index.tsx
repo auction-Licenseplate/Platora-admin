@@ -57,6 +57,7 @@ const LoginForm = () => {
     <LoginFormStyled className={clsx("loginForm-wrap")}>
       <div className="loginForm-container1">
         <form className="loginForm-form" onSubmit={formik.handleSubmit}>
+          <h1>로그인</h1>
           <div className="loginForm-idDiv">
             <Input
               type="email"
