@@ -68,7 +68,7 @@ export default function App({ Component, pageProps }: AppProps) {
       }
     };
 
-    checkAdmin();
+    if (token) checkAdmin();
   }, [token]);
 
   return (
