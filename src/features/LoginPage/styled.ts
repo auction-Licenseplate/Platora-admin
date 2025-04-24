@@ -6,13 +6,17 @@ export const LoginStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  h1 {
+    margin-bottom: 30px;
+  }
   .loginForm-wrap {
     width: 100%;
     display: flex;
     justify-content: center;
   }
   .loginForm-container1 {
-    width: 80%;
+    width: 100%;
   }
 
   .loginForm-container {
