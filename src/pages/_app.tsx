@@ -16,28 +16,28 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
-    // if (!token) router.replace("http://13.125.95.215/");
+    if (!token) router.replace("http://13.125.95.215");
 
-    // const checkAdmin = async () => {
-    //   try {
-    //     const res = await axios.get("http://localhost:5000/auth/getRole", {
-    //       withCredentials: true,
-    //       headers: {
-    //         Authorization: `Bearer ${token}`,
-    //       },
-    //     });
+    const checkAdmin = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/auth/getRole", {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
-    //     const role = res.data;
+        const role = res.data;
 
-    //     if (role !== "admin") {
-    //       router.replace("http://13.125.95.215/");
-    //     }
-    //   } catch (error) {
-    //     console.error("유저 정보 요청 실패:", error);
-    //   }
-    // };
+        if (role !== "admin") {
+          router.replace("http://13.125.95.215");
+        }
+      } catch (error) {
+        console.error("유저 정보 요청 실패:", error);
+      }
+    };
 
-    // checkAdmin();
+    checkAdmin();
 
     const handleResize = () => {
       if (window.innerWidth <= 1200) {
