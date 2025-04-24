@@ -41,7 +41,7 @@ const LoginForm = () => {
         }) // 서버 URL
         .then((res) => {
           Cookie.set("accessToken", res.data.token, {
-            path: "/",ㄹㄹ
+            path: "/",
             expires: 3 / 24, // 3시간
           });
           router.push("/");
