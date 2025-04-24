@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import Cookie from "js-cookie";
 import Image from "next/image";
 import seeimg from "@/imgaes/seeImgBlack.png";
-import notsee from "@/images/notseeImgBlack.png";
+import notsee from "@/imgaes/notseeImgBlack.png";
 const LoginForm = () => {
   const [see, setSee] = useState("password");
   const router = useRouter();
