@@ -41,7 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const checkAdmin = async () => {
       try {
-        const res = await axios.get("http://52.62.79.236/auth/getRole", {
+        const res = await axios.get("http://15.164.52.122/auth/getRole", {
           withCredentials: true,
           headers: {
             Authorization: `Bearer ${token}`,
