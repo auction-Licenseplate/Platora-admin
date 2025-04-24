@@ -36,13 +36,13 @@ const LoginForm = () => {
         .post("http://15.164.52.122/auth/login", data, {
           withCredentials: true,
           headers: {
-            "Content-Type": "application/json", // 반드시 명시
+            "Content-Type": "application/json",
           },
         }) // 서버 URL
         .then((res) => {
           Cookie.set("accessToken", res.data.token, {
-            path: "/", // 모든 페이지에서 접근 가능
-            expires: 1, // 1일
+            path: "/",ㄹㄹ
+            expires: 3 / 24, // 3시간
           });
           router.push("/");
         })
