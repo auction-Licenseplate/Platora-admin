@@ -5,7 +5,6 @@ import PointAgree from "./PointAgree";
 import ItemAgree from "./ItemAgree";
 import FailedModal from "./Agree/FailedModal";
 import { useEffect, useState } from "react";
-import Cookies from "js-cookie";
 interface AgreeProps {
   type?: string;
 }
@@ -15,10 +14,8 @@ const AgreeCompo = ({ type }: AgreeProps) => {
   const [num, setNum] = useState(0);
   const [plate, setPlate] = useState("");
 
-  const token = Cookies.get("accessToken");
-
   useEffect(() => {}, [num]);
-  return token ? (
+  return (
     <AgreeStyled>
       <TitleCompo
         title={
@@ -46,7 +43,9 @@ const AgreeCompo = ({ type }: AgreeProps) => {
           setUserId={setUserId}
         />
       )}
-      {fail !== "none" && (
+      {fail === "none" ? (
+        <></>
+      ) : (
         <FailedModal
           plate={plate}
           num={num}
@@ -58,7 +57,7 @@ const AgreeCompo = ({ type }: AgreeProps) => {
         />
       )}
     </AgreeStyled>
-  ) : null;
+  );
 };
 
 export default AgreeCompo;

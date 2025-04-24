@@ -6,6 +6,8 @@ import { Layout, Menu } from "antd";
 import clsx from "clsx";
 import { sidebarMenus } from "@/utill/createSideMenu";
 
+import Cookies from "js-cookie";
+
 export interface SidebarProps {
   className?: string;
   children?: ReactNode;
@@ -13,9 +15,12 @@ export interface SidebarProps {
 
 const Sidebar = ({ className, children }: SidebarProps) => {
   const router = useRouter();
+  const token = Cookies.get("accessToken");
 
   return (
-    <SidebarStyled className={clsx("Sidebar", className)}>
+    <SidebarStyled
+      className={clsx(token ? "Sidebar" : "SidebarOff", className)}
+    >
       <div>
         {/*
         // @ts-ignore */}
