@@ -55,11 +55,15 @@ export default function App({ Component, pageProps }: AppProps) {
 
         if (role !== "admin") {
           Modal.error({
+            centered: true,
             title: "접근이 제한되었습니다",
             content: "이 페이지는 관리자만 접근할 수 있습니다.",
             onOk: () => {
               Cookies.remove("accessToken");
               window.location.href = "http://13.125.95.215";
+            },
+            maskStyle: {
+              backgroundColor: "#ffffffde",
             },
           });
         }
