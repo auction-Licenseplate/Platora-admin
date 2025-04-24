@@ -39,7 +39,7 @@ export default function App({ Component, pageProps }: AppProps) {
       }
     };
 
-    checkAdmin();
+    if (token) checkAdmin();
 
     const handleResize = () => {
       if (window.innerWidth <= 1200) {
