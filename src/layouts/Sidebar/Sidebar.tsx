@@ -1,4 +1,4 @@
-import React, { memo, ReactNode } from "react";
+import React, { memo, ReactNode, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { SidebarStyled } from "./styled";
 
@@ -15,7 +15,12 @@ export interface SidebarProps {
 
 const Sidebar = ({ className, children }: SidebarProps) => {
   const router = useRouter();
-  const token = Cookies.get("accessToken");
+  const [token, setToken] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    const t = Cookies.get("accessToken");
+    setToken(t);
+  }, []);
 
   return (
     <SidebarStyled
