@@ -16,11 +16,11 @@ export interface SidebarProps {
 const Sidebar = ({ className, children }: SidebarProps) => {
   const router = useRouter();
   const [token, setToken] = useState<string | undefined>(undefined);
+  const t = Cookies.get("accessToken");
 
   useEffect(() => {
-    const t = Cookies.get("accessToken");
     setToken(t);
-  }, [token]);
+  }, [t]);
 
   console.log(token);
 
