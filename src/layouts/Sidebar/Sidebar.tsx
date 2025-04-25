@@ -20,7 +20,7 @@ const Sidebar = ({ className, children }: SidebarProps) => {
   useEffect(() => {
     const t = Cookies.get("accessToken");
     setToken(t);
-  }, []);
+  }, [token]);
 
   console.log(token);
 
