@@ -23,8 +23,8 @@ const LoginForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: "adminPlatora01@admin.com",
+      password: "adminPlatora0101@@",
     },
     onSubmit: (values) => {
       const data = {
@@ -62,7 +62,8 @@ const LoginForm = () => {
             <Input
               type="email"
               id="email"
-              onChange={formik.handleChange}
+              // onChange={formik.handleChange}
+              name="email"
               placeholder="abc123@xxx.com"
               value="adminPlatora01@admin.com"
               required
@@ -71,9 +72,10 @@ const LoginForm = () => {
           <div className="loginForm-idDiv">
             <Input
               name="password"
+              id="password"
               placeholder="비밀번호를 입력해주세요"
               type={see}
-              onChange={formik.handleChange}
+              // onChange={formik.handleChange}
               value="adminPlatora0101@@"
               required
             />
