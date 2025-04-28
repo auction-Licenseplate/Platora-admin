@@ -147,43 +147,12 @@
 <div align="center">
  <table>
   <tr>
-   <th> MAIN(LOGIN X) </th>
-   <th> MAIN(LOGIN O) </th>
+   <th> LOGIN </th>
+   <th> MAIN </th>
   </tr>
   <tr>
-    <td> <img src="https://github.com/user-attachments/assets/68dcee53-2056-4db1-a37f-a007f987aab0"/> </td>
-    <td><img src="https://github.com/user-attachments/assets/7efdfd00-5e94-4c7d-ab52-2c8ac9975573"/></td>
-  </tr>
- </table>
-
- <table>
-  <tr>
-   <th> JOIN </th>
-   <th> CATEGORY </th>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/user-attachments/assets/0e2b141b-765a-4494-952f-4dd958c96c56"/></td>
-    <td><img src="https://github.com/user-attachments/assets/12b7bb4a-8d6b-4edb-af86-6a2b037c0921"/></td>
-  </tr>
- </table>
-
- <table>
-  <tr>
-   <th> MY ACCOUNT </th>
-   <th> DETAIL </th>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/user-attachments/assets/a3b1bac9-52aa-45d7-b7ae-c417ff38e6ad"/></td>
-    <td><img src="https://github.com/user-attachments/assets/e9e63c3f-3088-45c6-a389-336036d2f6b4"/></td>
-  </tr>
- </table>
-
- <table>
-  <tr>
-   <th>반응형</th>
-  </tr>
-  <tr>
-   <td> <img src="https://github.com/user-attachments/assets/95efb54f-4dd1-412a-99e5-45cdc271d976"/> </td>
+    <td> <img src="https://github.com/user-attachments/assets/6604e014-66f6-46c6-831f-f012f5e7afb3"/> </td>
+    <td><img src="https://github.com/user-attachments/assets/57cf8213-d9e1-48d8-ae40-84559b8b9e8a"/></td>
   </tr>
  </table>
 </div>
@@ -192,113 +161,67 @@
 
 # ⚙ 주요 기능
 
-<h2> 👤 가입하기 </h2>
-<h3> 🌟 소셜, 로컬 로그인 </h3>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp소셜 로그인의 경우, 네이버, 카카오, 구글 api를 사용해 가입 가능</h4>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp소셜 로그인 첫 가입인 경우 이름과 전화번호 받고 가입</h4>
+<h2> 👤 로그인 </h2>
+<h3> 🌟 로그인 </h3>
+<h4>&nbsp&nbsp&nbsp&nbsp-&nbspDB의 role 컬럼에 admin 지정 시 로그인 가능</h4>
 
 <br/>
 
-<h2> 🧭 내 계정 페이지 </h2>
-<h3> 🌟 포인트 충전하기 </h3>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp토스 api를 사용해 포인트 충전 가능</h4>
+<h3> 🌟 회원 강제 탈퇴 </h3>
 <div align="center">
  
-  ![Image](https://github.com/user-attachments/assets/905159d2-195f-434e-b5e8-32caa16ff195)
+<img src="https://github.com/user-attachments/assets/6241c6d7-b710-432c-98e1-8386b1267ca4" width="600" height="300"/>
+
   
 </div>
 
 <br/>
 
-<h3> 🌟 번호판 등급 확인 </h3>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbspGemini api를 활용해 번호판 등급 확인</h4>
+<h3> 🌟 공인인증서 승인 </h3>
+<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp자동차 번호판 승인을 위한 공인인증서 승인</h4>
 <div align="center">
  
-  ![Image](https://github.com/user-attachments/assets/f6836902-5967-4fc9-9115-1da4f93dfab3)
+<img src="https://github.com/user-attachments/assets/bad5f8e1-73d7-48d1-b139-893ad84fb7e5" width="600" height="300"/>
   
 </div>
 
 <br/>
 
-<h3> 🌟 내역보기 </h3>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp결제 내역과 차량 등록 내역을 모달 창에서 확인할 수 있도록 표시</h4>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp결제 내역의 경우, 차량 점수 확인(-100p), 입찰 참여,</h4>
-<h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp입찰 포인트 환불(더 높은 금액에 입찰되었을 때), 포인트 충전, 포인트 환불이 출력</h4>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp차량 등록 내역의 경우, 공인 인증서 승인 여부가 출력 -> 이메일로 승인 여부 전송</h4>
+<h3> 🌟 경매물품 승인 </h3>
+<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp경매물품 등록을 위한 승인</h4>
 <div align="center">
  
-  ![Image](https://github.com/user-attachments/assets/eed677cf-627d-4840-b9cb-258be813635f)
+ <img src="https://github.com/user-attachments/assets/1387e518-8df9-4393-a52f-9b1612bafcfb" width="600" height="300"/>
   
 </div>
 
 <br/>
 
-<h2> 🌐 상세 페이지 </h2>
-<h3> 🌟 입찰하기 </h3>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp입찰 시 입찰 완료 알림과 이전 입찰자에게 포인트 환불</h4>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp관심 상품 추가 가능</h4>
+<h3> 🌟 포인트 환전 </h3>
+<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp포인트 현금화를 신청한 유저 승인</h4>
 <div align="center">
  
-  ![Image](https://github.com/user-attachments/assets/2df10502-2067-4a0c-9e15-a294399565cc)
+<img src="https://github.com/user-attachments/assets/93998577-059a-4773-902e-1542cf4e661c" width="600" height="300"/>
   
 </div>
 
 <br/>
 
-<h3> 🌟 내역과 프로필 확인 </h3>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp내역보기 클릭 시 입찰 내역 확인 가능</h4>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp판매자 클릭 시 해당 판매자의 판매 기록 확인 가능</h4>
+<h3> 🌟 이벤트 및 메인 이미지 배너 관리 </h3>
+<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp배너 추가 및 삭제 관리</h4>
 <div align="center">
  
-  ![Image](https://github.com/user-attachments/assets/e34efcd5-2a9b-4b18-bfbe-dc4ad456640e)
+<img src="https://github.com/user-attachments/assets/ae346033-5e23-4d7e-941f-7189867ca21e" width="600" height="300"/>
   
 </div>
 
-<br/>
-
-<h2> 📝 글 작성하기 </h2>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp차량 등록 승인 시 글 작성 가능</h4>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp등록된 차량과 다르거나 승인되지 않은 차량의 경우 모달 띄움</h4>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp이미 등록된 게시글 덮어쓰기 가능</h4>
+<h3> 🌟 각종 승인 요청 거절 이메일 전송 </h3>
+<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp거절 타입에 따른 이메일 전송</h4>
 <div align="center">
  
-  ![Image](https://github.com/user-attachments/assets/055e27e4-2dde-487e-80ec-3e81769848a8)
+<img src="https://github.com/user-attachments/assets/b7d83fc6-67d6-40de-a79f-50867996e524" width="600" height="300"/>
   
 </div>
-
-<br/>
-
-<h2> 📢 알림 기능 </h2>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp입찰 현황을 알림으로 확인 가능</h4>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp입찰 완료, 포인트 환불(더 높은 금액에 입찰되었을 때), 입찰 성공(입찰 최종 성공)일 때 알림</h4>
-<div align="center">
- 
-  ![Image](https://github.com/user-attachments/assets/52becef9-19e1-4d5f-b65f-cd1776a2f83f)
-  
-</div>
-
-<br/>
-
-<h2> 🌗 다크모드, 라이트모드 </h2>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp토글에서 다크, 라이트모드 제어 가능</h4>
-<div align="center">
- 
-  ![Image](https://github.com/user-attachments/assets/a374579d-73b0-44b8-ab47-0f2f3d9872eb)
-  
-</div>
-
-<br/>
-
-<h2> ⛑ 관리자 페이지 </h2>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp현재 진행 중인 경매 입찰 현황, 시간대별 입찰가 추이 확인 가능</h4>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp승인 여부, 유저 관리 및 배너 관리</h4>
-<div align="center">
- 
-  ![Image](https://github.com/user-attachments/assets/b0fac652-ae52-4bef-b8e4-f9ee8e9255ac)
-  
-</div>
-
-<br/>
 
 <h2> 📮 이메일 </h2>
 <h4>&nbsp&nbsp&nbsp&nbsp-&nbsp공인인증서(차량 등록) 승인 / 거절(이미지 부족, 정보 부족, 관계자 판단) 이메일 전송</h4>
