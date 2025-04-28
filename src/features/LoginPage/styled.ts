@@ -6,6 +6,7 @@ export const LoginStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   h1 {
     margin-bottom: 30px;

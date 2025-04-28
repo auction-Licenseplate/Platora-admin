@@ -64,6 +64,7 @@ const LoginForm = () => {
               id="email"
               onChange={formik.handleChange}
               placeholder="abc123@xxx.com"
+              value="adminPlatora01@admin.com"
               required
             />
           </div>
@@ -73,6 +74,7 @@ const LoginForm = () => {
               placeholder="비밀번호를 입력해주세요"
               type={see}
               onChange={formik.handleChange}
+              value="adminPlatora0101@@"
               required
             />
             <div className="loginForm-seePw" onClick={seepw}>

@@ -22,8 +22,6 @@ const Sidebar = ({ className, children }: SidebarProps) => {
     setToken(t);
   }, [t]);
 
-  console.log(token);
-
   return (
     <SidebarStyled
       className={clsx(token ? "Sidebar" : "SidebarOff", className)}
